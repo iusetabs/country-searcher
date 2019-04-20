@@ -1,0 +1,9 @@
+#ignore class files
+*.class
+#ignore swap files
+*.swp
+*.swo
+#ignore everything in the .idea dir
+'.idea/*
+#ignore the _MACOSX directory
+_MACOSX/*
