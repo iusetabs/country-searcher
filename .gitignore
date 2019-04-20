@@ -1,3 +1,9 @@
 # Ignore Gradle project-specific cache directory
 .gradle
+# Ignore the build dir
+build/*
+#Ignore class files
+*.class
+#Ignore the idea dir
+.idea/*
 

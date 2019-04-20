@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
-      <module name="country-searcher.main" target="1.8" />
-      <module name="country-searcher.test" target="1.8" />
+    <bytecodeTargetLevel target="11">
+      <module name="country-searcher.main" target="11" />
+      <module name="country-searcher.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

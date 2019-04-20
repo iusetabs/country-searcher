@@ -22,7 +22,7 @@ repositories {
     mavenCentral()
 }
 
-targetCompatibility = 1.8
+targetCompatibility = 11
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
