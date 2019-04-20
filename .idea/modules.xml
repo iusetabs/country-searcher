@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/country-searcher.iml" filepath="$PROJECT_DIR$/country-searcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/country-searcher.main.iml" filepath="$PROJECT_DIR$/.idea/modules/country-searcher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/country-searcher.test.iml" filepath="$PROJECT_DIR$/.idea/modules/country-searcher.test.iml" />
     </modules>
   </component>
 </project>
