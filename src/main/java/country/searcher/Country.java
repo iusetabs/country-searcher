@@ -2,14 +2,31 @@ package country.searcher;
 
 public class Country {
 
-    private String input;
+    private String name;
+    private double lat;
+    private double lng;
 
-    public String getInput() {
-        return input;
+    public String getName() {
+        return name;
     }
 
-    public void setInput(String input) {
-        this.input = input;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
 }
