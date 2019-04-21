@@ -9,10 +9,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
+    /*
+        The JAR executable.
+     */
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

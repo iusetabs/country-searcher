@@ -1,5 +1,9 @@
 package country.searcher;
 
+/*
+    @Info a very basic country object.
+ */
+
 public class Country {
 
     private String name;
