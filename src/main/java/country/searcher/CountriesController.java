@@ -20,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 import static java.lang.String.valueOf;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -47,7 +48,7 @@ public class CountriesController {
     public CountriesController(){
         processUserLocation(get("http://api.ipstack.com/check?access_key=a1d5abe0fd6709ed6ee80744cc29def2"));
         this.countriesAsAMap = processKnownCountries("countries_metadata.json");
-        this.countriesInOrder = arrangeMapByNumbers(this.countriesAsAMap);
+        this.countriesInOrder = arrangeMapByNumbersWithStreams(this.countriesAsAMap);
     }
 
     //Endpoint for countries post.
@@ -186,7 +187,7 @@ public class CountriesController {
         @Info: Creates an arraylist of country objects, ordered by the distance from the user's location.
         @Return: ArrayList<Country> : An ordered ArrayList of country objects.
      */
-    public ArrayList<Country> arrangeMapByNumbers(Map<Double, List<Country>> jsonAsMap){
+    /*public ArrayList<Country> arrangeMapByNumbers(Map<Double, List<Country>> jsonAsMap){
         List<Double> sortedKeys = new ArrayList<>(jsonAsMap.keySet());
         ArrayList<Country> countryObjects = new ArrayList<>();
         long start = System.currentTimeMillis();
@@ -198,7 +199,25 @@ public class CountriesController {
         //Testing. Some run stats.
         System.out.println("Time taken to run processKnownCountries : " + TimeUnit.MILLISECONDS.toSeconds(finish - start));
         return countryObjects;
+    }*/
+
+    public ArrayList<Country> arrangeMapByNumbersWithStreams(Map<Double, List<Country>> jsonAsMap){
+        List<Double> sortedKeys = new ArrayList<>(jsonAsMap.keySet());
+        ArrayList<Country> countryObjects = new ArrayList<>();
+
+        Stream<Double> stream = sortedKeys.stream().sorted();
+
+        long start = System.currentTimeMillis();
+
+        stream.forEach(key -> countryObjects.addAll(jsonAsMap.get(key)));
+
+        long finish = System.currentTimeMillis();
+
+        //Testing. Some run stats.
+        System.out.println("Time taken to run processKnownCountries : " + TimeUnit.MILLISECONDS.toSeconds(finish - start));
+        return countryObjects;
     }
+
 
     /*
         @Param: uri: the target uri
